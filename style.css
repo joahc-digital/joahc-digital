@@ -248,3 +248,33 @@ footer {
     flex-wrap: wrap;
   }
 }
+
+/* CONTACT PAGE */
+
+.contact-intro {
+  min-height: 65vh;
+  padding-top: 130px;
+}
+
+.contact-details {
+  margin-top: 55px;
+}
+
+.contact-label {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.contact-email {
+  color: var(--text);
+  font-size: clamp(18px, 3vw, 25px);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 5px;
+}
+
+.contact-email:hover {
+  color: var(--muted);
+}
