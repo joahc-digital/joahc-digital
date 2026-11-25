@@ -1,38 +1,32 @@
 
-// JOAH C DIGITAL — Theme Switcher
+const toggle = document.getElementById("theme-toggle");
 
-const themeButton = document.getElementById("theme-toggle");
-
-// Check for a previously selected theme
 const savedTheme = localStorage.getItem("joah-theme");
 
-// Apply the saved theme, or use dark mode by default
 if (savedTheme) {
   document.documentElement.setAttribute("data-theme", savedTheme);
 }
 
-// Update the button label
-function updateThemeButton() {
+function updateButton() {
   const currentTheme =
     document.documentElement.getAttribute("data-theme") || "dark";
 
-  themeButton.textContent =
+  toggle.textContent =
     currentTheme === "dark" ? "Light Mode" : "Dark Mode";
 }
 
-// Switch between light and dark themes
-themeButton.addEventListener("click", () => {
-  const currentTheme =
-    document.documentElement.getAttribute("data-theme") || "dark";
+if (toggle) {
+  updateButton();
 
-  const newTheme = currentTheme === "dark" ? "light" : "dark";
+  toggle.addEventListener("click", () => {
+    const currentTheme =
+      document.documentElement.getAttribute("data-theme") || "dark";
 
-  document.documentElement.setAttribute("data-theme", newTheme);
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
 
-  localStorage.setItem("joah-theme", newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("joah-theme", newTheme);
 
-  updateThemeButton();
-});
-
-// Set the correct button label when the page loads
-updateThemeButton();
+    updateButton();
+  });
+}
